@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff8ec" />
+    <meta name="description" content="A gentle prompt game for couples to slow down, listen, and feel a little closer." />
+    <title>Closer, Together — a conversation game</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <script defer src="src/app.js"></script>
+  </head>
+  <body>
+    <div class="page-shell" id="home">
+      <header class="topbar">
+        <a class="wordmark" href="#home" aria-label="Closer, Together home">
+          <span class="wordmark-mark" aria-hidden="true">c<span>+</span>t</span>
+          <span>closer, together</span>
+        </a>
+        <button class="saved-link" id="saved-button" type="button" aria-label="View saved prompts">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75h11v15l-5.5-3.5-5.5 3.5v-15Z" /></svg>
+          <span>Saved</span><span class="saved-count" id="saved-count">0</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="screen welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+          <div class="intro-copy">
+            <div class="eyebrow"> <span class="eyebrow-line"></span> A LITTLE SPACE FOR US <span class="eyebrow-line"></span></div>
+            <p class="intro-description">A small prompt game for two.</p>
+          </div>
+
+          <div class="setup-card">
+            <div class="setup-heading">
+              <span class="step-number">01</span>
+              <div><h2>Choose your kind of conversation</h2><p>Go with what feels right tonight.</p></div>
+            </div>
+            <div class="topic-grid" role="group" aria-label="Choose a prompt topic">
+              <button class="topic-option selected" type="button" data-topic="all" aria-pressed="true">
+                <span class="topic-icon">✳</span><span class="topic-name">A little of everything</span><span class="topic-detail">A gentle mix</span>
+              </button>
+              <button class="topic-option" type="button" data-topic="everyday" aria-pressed="false">
+                <span class="topic-icon">☼</span><span class="topic-name">The everyday</span><span class="topic-detail">Small things, big meaning</span>
+              </button>
+              <button class="topic-option" type="button" data-topic="memories" aria-pressed="false">
+                <span class="topic-icon">↟</span><span class="topic-name">Our stories</span><span class="topic-detail">Then, now, and us</span>
+              </button>
+              <button class="topic-option" type="button" data-topic="dreams" aria-pressed="false">
+                <span class="topic-icon">☾</span><span class="topic-name">What’s ahead</span><span class="topic-detail">Hopes, wishes, wonder</span>
+              </button>
+            </div>
+            <div class="setup-footer">
+              <span class="time-note"><span class="time-dot"></span> </span>
+              <button class="primary-button" id="start-button" type="button">Begin together <span aria-hidden="true">↗</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen game-screen hidden" id="game-screen" aria-labelledby="game-title">
+          <button class="back-link" id="back-button" type="button"><span aria-hidden="true">←</span> Change the mood</button>
+      
+          <article class="prompt-card" aria-live="polite" aria-atomic="true">
+            <div class="card-topline"><span class="prompt-label" id="prompt-topic">THE EVERYDAY</span><span class="round-count" id="round-count">01 <span>/ 12</span></span></div>
+            <div class="card-content">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <h2 id="prompt-text">What’s a small thing I do that makes an ordinary day feel a little better?</h2>
+              <div class="follow-up hidden" id="follow-up"><span>IF YOU’D LIKE TO GO A LITTLE FURTHER</span><p id="follow-up-text"></p></div>
+            </div>
+            <div class="card-bottomline"><span class="card-flower" aria-hidden="true">✳</span><span>There’s no wrong way to answer.</span><span class="card-flower" aria-hidden="true">✳</span></div>
+          </article>
+          <div class="game-actions">
+            <button class="quiet-button" id="save-prompt-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.75h11v15l-5.5-3.5-5.5 3.5v-15Z" /></svg><span>Save this one</span></button>
+            <button class="primary-button next-button" id="next-button" type="button">Another prompt <span aria-hidden="true">↗</span></button>
+            <button class="quiet-button follow-button" id="follow-button" type="button"><span>Go a little deeper</span><span aria-hidden="true">↓</span></button>
+          </div>
+        </section>
+      </main>
+
+    </div>
+
+    <dialog class="saved-dialog" id="saved-dialog" aria-labelledby="saved-title">
+      <div class="dialog-header"><div><div class="eyebrow">A LITTLE COLLECTION</div><h2 id="saved-title">Keep close.</h2></div><button class="close-button" id="close-dialog" type="button" aria-label="Close saved prompts">×</button></div>
+      <div class="saved-list" id="saved-list"></div>
+      <p class="empty-saved" id="empty-saved">The prompts you save will find a home here.</p>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
