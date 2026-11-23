@@ -149,6 +149,7 @@ h1 em { color: #a8736b; font-weight: 500; }
 /* A bright, folk-art-inspired palette: marigold, hibiscus, indigo, jade, and clay. */
 :root {
   --ink: #342b2b;
+  
   --muted: #746760;
   --paper: #fffdf8;
   --rose: #d34d61;
